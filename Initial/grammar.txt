@@ -1,0 +1,17 @@
+programa			    = pahayag*;
+pahayag			        = (ipakita_pahayag | nabasa_pahayag | kung_pahayag | asignatura_pahayag) ";";
+ipakita_pahayag		    = "ipakita" pagpapahayag ;
+nabasa_pahayag		    = "nabasa" tagapagpakilala ;
+kung_pahayag		    = "kung" pagpapahayag "edi" pahayag ("kundi" pahayag)? ;
+asignatura_pahayag	    = tagapagpakilala "=" pagpapahayag ;
+pagpapahayag		    = pagkakapantay_pantay ;
+pagkakapantay_pantay	= paghahambing (("==" | "!=") paghahambing)* ;
+paghahambing		    = karagdagan ((">" | ">=" | "<" | "<=") karagdagan)* ;
+karagdagan			    = pagpaparami (("+" | "-") pagpaparami)* ;
+pagpaparami			    = unary (("*" | "/") unary)* ;
+unary				    = ("+" | "-") unary | salik ;
+salik				    = tagapagpakilala | numero | "(" pagpapahayag ")" ;
+tagapagpakilala		    = letra (letra | digit) ;
+numero			        = dijit+ ;
+letra				    ="a"..."z" | "A"..."Z"
+dijit				    = "0"..."9" ;
